@@ -1,8 +1,5 @@
-879642920:AAF8LyvzU96NYeE6hygJfjro7ITmglp1aDI
 
-https://www.youtube.com/watch?v=09buxer2r-I
 
-https://core.telegram.org/bots#2-how-do-bots-work
-https://core.telegram.org/bots/api#sendmessage
+
 
 726853849 chat_id
