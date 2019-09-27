@@ -1,16 +1,17 @@
 import telebot
+# import requests
 import constants
-
 bot = telebot.TeleBot(constants.token)
 
 # bot.send_message(constants.chat_id, "Response test 2")
-upd = bot.get_updates()
+# upd =requests.get(constants.url+constants.token + '/getupdates')
 # last_upd = upd[-1]
 # print(last_upd.message.message_id)
-# print(bot.get_me())
+# print(type(upd.json()))
+print(bot.get_me())
 
-def log(message, answer):
-    print("\n ------------------------")
+def log(message,answer):
+    print("\n --------")
     from datetime import datetime
     print(datetime.now())
     print("Сообщение от {0} {1}. (id = {2}) \nТекст - {3}".format(message.from_user.first_name,
