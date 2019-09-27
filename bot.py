@@ -62,7 +62,7 @@ def handle_text(message):
 
 @bot.message_handler(content_types=['photo'])
 def handle_photo(message):
-    bot.send_message(message.from_user.id, message.photo.file_id)
+    bot.send_message(message.from_user.id, message.photo)
 
 
 
