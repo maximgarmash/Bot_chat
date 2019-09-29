@@ -1,5 +1,6 @@
 import telebot
 # import requests
+import os
 import constants
 bot = telebot.TeleBot(constants.token)
 
@@ -33,6 +34,7 @@ def handle_stop(message):
     hide_markup = telebot.types.ReplyKeyboardRemove()
     bot.send_message(message.from_user.id, '..', reply_markup=hide_markup)
 
+
 @bot.message_handler(commands=['help'])
 def handle_command(message):
     bot.send_message(message.from_user.id, """ Мои возможности весьма специфичны.
@@ -51,8 +53,14 @@ def handle_text(message):
         log(message, answer)
         bot.send_message(message.from_user.id, answer)
     elif message.text == 'фото':
-        bot.send_chat_action(message.from_user.id, 'upload_photo')
-        bot.send_photo(message.from_user.id, constants.file_not_bad)
+        directory = 'D:/Distr/Python/Projects/Bot/foto'
+        all_files_in_directory = os.listdir(directory)
+        print(all_files_in_directory)
+        for file in all_files_in_directory:
+            img = open(directory + '/' + file, 'rb')
+            bot.send_chat_action(message.from_user.id, 'upload_photo')
+            bot.send_photo(message.from_user.id, img)
+            img.close()
     # elif message.text == 'get updates':
 
 
