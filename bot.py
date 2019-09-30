@@ -1,5 +1,5 @@
 import telebot
-# import requests
+import random
 import os
 import constants
 bot = telebot.TeleBot(constants.token)
@@ -53,15 +53,14 @@ def handle_text(message):
         log(message, answer)
         bot.send_message(message.from_user.id, answer)
     elif message.text == 'фото':
-        directory = 'D:/Distr/Python/Projects/Bot/foto'
+        directory = 'D:\Python\Projects\Bot\photo'
         all_files_in_directory = os.listdir(directory)
-        print(all_files_in_directory)
-        for file in all_files_in_directory:
-            img = open(directory + '/' + file, 'rb')
-            bot.send_chat_action(message.from_user.id, 'upload_photo')
-            bot.send_photo(message.from_user.id, img)
-            img.close()
-    # elif message.text == 'get updates':
+        random_file = random.choice(all_files_in_directory)
+        img = open(directory + '/' + random_file, 'rb')
+        bot.send_chat_action(message.from_user.id, 'upload_photo')
+        bot.send_photo(message.from_user.id, img)
+        img.close()
+    elif message.text == 'аудио':
 
 
     else:
@@ -69,9 +68,6 @@ def handle_text(message):
         bot.send_message(message.from_user.id, answer)
     # print(message)
 
-@bot.message_handler(content_types=['photo'])
-def handle_photo(message):
-    bot.send_message(message.from_user.id, message.photo)
 
 
 
