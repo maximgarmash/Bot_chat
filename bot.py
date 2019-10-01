@@ -66,7 +66,7 @@ def handle_text(message):
         bot.send_chat_action(message.from_user.id, 'upload_audio')
         bot.send_audio(message.from_user.id, audio)
         audio.close()
-    elif
+    elif message.text ==
 
 
     else:
