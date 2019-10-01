@@ -53,7 +53,7 @@ def handle_text(message):
         log(message, answer)
         bot.send_message(message.from_user.id, answer)
     elif message.text == 'фото':
-        directory = 'D:\Python\Projects\Bot\photo'
+        directory = 'D:/Python/Projects/Bot/photo'
         all_files_in_directory = os.listdir(directory)
         random_file = random.choice(all_files_in_directory)
         img = open(directory + '/' + random_file, 'rb')
@@ -61,6 +61,12 @@ def handle_text(message):
         bot.send_photo(message.from_user.id, img)
         img.close()
     elif message.text == 'аудио':
+        directory = 'D:/Python/Projects/Bot/audio'
+        audio = open(directory + '/' + 'muzlome_Tima_Belorusskikh_-_Mokrye_krossy_58229891.mp3', 'rb')
+        bot.send_chat_action(message.from_user.id, 'upload_audio')
+        bot.send_audio(message.from_user.id, audio)
+        audio.close()
+    elif
 
 
     else:
