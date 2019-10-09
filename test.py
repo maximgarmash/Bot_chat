@@ -1,2 +1,9 @@
-my_list = [1, 2, 2, 4, 6, 6]
-print(set(my_list))
+import json
+import requests
+
+
+url = 'https://api.coinmarketcap.com/v1/ticker/'
+res = requests.get(url).json()
+print(res)
+res_json = json.dumps(res, indent=2)
+print(type(res_json))
